@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include("./partials/head.ejs") %>
+
+  <body>
+    <%-include("./partials/navbar.ejs") %>
+    <div class="container" style="min-height: 100vh">
+      <div class="row text-white text-center">
+        <div class="col-sm-7 mt-5 mx-auto">
+          <div class="card profile-card-c border-card">
+            <div class="card-body">
+              <h4 class="card-title">My Profile</h4>
+              <h6 class="card-text">
+                welcome!
+                <strong
+                  ><span class="text-primary"><%= user.name %></span></strong
+                >
+              </h6>
+
+              <div class="row">
+                <div class="col-sm-3 mx-auto">
+                  <% if (user.image) { %>
+                  <img
+                    src="/images/<%= user.image %>"
+                    alt=""
+                    style="width: 100px; height: 100px; border-radius: 50%"
+                  />
+
+                  <% } else { %>
+                  <img
+                    src="/images/avatar-comment.png"
+                    alt=""
+                    style="width: 100px; height: 100px; border-radius: 50%"
+                  />
+
+                  <% } %>
+                  <br />
+                  <br />
+                  <a href="update-profile/<%= user.id %> "
+                    ><i class="fas fa-pencil-alt"></i> Edit Profile</a
+                  >
+                </div>
+
+                <% if (user.details && user.work) { %>
+                <div class="text-left col-sm-6 mx-auto mt-3">
+                  <h4 class="card-text">
+                    <strong
+                      ><span class="text-primary"
+                        ><%= user.name %></span
+                      ></strong
+                    >
+                    <h6 class="card-text"><%= user.work %></h6>
+                  </h4>
+                  <p class="card-text"><%= user.details %></p>
+                </div>
+                <% } else { %>
+                <div class="text-left col-sm-6 mx-auto mt-3">
+                  <h4 class="card-text">
+                    <strong
+                      ><span class="text-primary"
+                        ><%= user.name %></span
+                      ></strong
+                    >
+                    <h6 class="card-text">web developer</h6>
+                  </h4>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
+                    dolore quae totam.
+                  </p>
+                </div>
+                <% } %>
+                <!-- <div class="text-left col-4">
+                  <p class="card-text">
+                    Welcome!
+                    <strong
+                      ><span class="text-primary"
+                        ><%= user.name %></span
+                      ></strong
+                    >
+                  </p>
+                  <p class="card-text">
+                    Email: <span class="text-primary"><%= user.email %></span>
+                  </p>
+                  <a href="/logout" class="btn btn-danger">Logout</a>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include("./partials/footer.ejs") %>
+  </body>
+</html>

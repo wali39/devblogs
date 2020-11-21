@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include("./partials/head.ejs") %>
+  <body>
+    <%-include("./partials/navbar.ejs") %>
+    <div class="container mt-5" style="min-height: 100vh">
+      <div class="row">
+        <div class="col-sm-4 col-md-6 col-lg-4 mx-auto pb-2 text-white-50">
+          <div class="card reg-card-c border-card">
+            <div class="card-header text-center"><h3>Sign Up</h3></div>
+            <div class="card-body p-3">
+              <form
+                action="/register"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                <% if (typeof err!="undefined") { %>
+
+                <div class="alert alert-dismissible alert-danger">
+                  <button type="button" class="close" data-dismiss="alert">
+                    &times;
+                  </button>
+                  <strong><%= err %></strong>
+                </div>
+
+                <% } %>
+
+                <div class="mb-3">
+                  <label for="email" class="form-label">Name:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    placeholder="name"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address:</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    placeholder="email"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password:</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    placeholder="password"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="file" class="form-label">profile image:</label>
+                  <input type="file" class="form-control" name="myImage" />
+                </div>
+                <p>
+                  Already Registered?
+                  <a href="/login"><span class="text-danger">Log In</span></a>
+                </p>
+                <button type="submit" class="btn btn-primary">Sign up</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include("./partials/footer.ejs") %>
+  </body>
+</html>

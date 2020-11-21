@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include("./partials/head.ejs") %>
+  <body>
+    <%-include("./partials/navbar.ejs") %>
+    <div class="container text-white" style="min-height: 100vh">
+      <div class="row mt-5">
+        <div
+          class="col-sm-6 mx-auto"
+          style="
+            background-color: rgb(46, 45, 45);
+            border-radius: 5px;
+            padding: 20px;
+          "
+        >
+          <form
+            action="/update-profile/<%= user.id %> "
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <h2 class="text-center">Edit Profile</h2>
+            <div class="mb-3">
+              <label for="file" class="form-label">Profile Picture</label>
+              <input type="file" class="form-control" name="myImage" />
+            </div>
+            <div class="mb-3">
+              <label for="text" class="form-label">Occupation</label>
+              <input
+                type="text"
+                class="form-control"
+                name="work"
+                placeholder="your occupation...(ex:web developer, web designer)"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="text" class="form-label">About yourself</label>
+              <input
+                type="text"
+                class="form-control"
+                name="about"
+                placeholder="write about yourself..."
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <%- include("./partials/footer.ejs") %>
+  </body>
+</html>

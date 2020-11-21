@@ -1,0 +1,33 @@
+/* a:hover {
+\
+  text-decoration: none;
+}
+a {
+  color: black;
+} */
+.con-inner {
+  max-width: 800px;
+  margin: auto;
+}
+body {
+  /* background-color: #2d3748; */
+  background: #1a202c;
+}
+* {
+  font-family: "Raleway", sans-serif;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+}
+.login-card-c,
+.profile-card-c,
+.reg-card-c,
+.blog-card-c {
+  background-color: #2d3748;
+}
+
+.border-card {
+  border: 1px solid rgba(214, 64, 64, 0.747);
+  border-radius: 3%;
+}
+.input-bg {
+  background-color: rgba(255, 255, 255, 0.719);
+}

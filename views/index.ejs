@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include("./partials/head.ejs") %>
+
+  <body>
+   
+  
+    <%-include("./partials/navbar.ejs") %>
+
+    <div class="container mt-5" style="min-height: 100vh;" >
+     <div class="con-inner">
+        <h1 class="text-white pl-2 my-4" style="border-left:5px solid red">Our Blogs</h1>
+    
+      <div class="row g-3">
+        <% if (blogs.length>0) { %> <% blogs.forEach(blog=>{ %>
+
+        <div class="col-sm-6 text-white">
+           <!-- <p class="card-text text-truncate"><%= blog.content %></p> -->
+            <div class="card c-box">
+              <div class="card-body">
+                <h4 class="card-title"><%= blog.title %></h4>
+                  <p class="d-inline">
+                    <a href="/authorprofile/<%= blog.author %> "><strong><%= blog.author %> </strong></a>
+                  </p>  <small>-<span class="text-white-50"><%= blog.createdAt.toDateString() %> </span></small><br />
+                <p class="card-text blog-text-box"><%= blog.content %></p>
+               <% if (admin) { %>
+                  <a href="/edit/<%= blog.id %> " class="btn-link">Edit...</a>
+               <% } %>
+                 <a href="/details/<%= blog.id %> " class="btn-link">Read More...</a>
+                 <br>
+              
+               
+              </div>
+            </div>
+        
+        </div>
+
+        <% }) %> <% } else {%>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">No blogs availbale here</h4>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+      <% } %>
+     </div>
+    </div>
+  </div>
+  <style>
+    .blog-text-box{
+     overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;}
+      
+        .c-box{
+          padding: 10px;
+          transition: 0.3s;
+          border-radius: 10px;
+          /* background: white; */
+          background-color: #2D3748;
+          /* -webkit-box-shadow: 1px 1px 6px 0px rgba(0,0,0,0.79), -1px -1px 6px 0px rgba(0,0,0,0.46);  */
+          box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.041), -1px 3px 6px 0px rgba(0, 0, 0, 0.034);
+        }
+        .c-box:hover{
+          margin-top: -5px;
+          margin-bottom: 5px;
+
+         /* -webkit-box-shadow: -2px 4px 6px 0px rgba(0, 0, 0, 0.082), 2px 0px 6px 0px rgba(0,0,0,0.5);  */
+box-shadow: -2px 4px 6px 0px rgba(0, 0, 0, 0.164), 2px 2px 6px 0px rgba(0, 0, 0, 0.144);
+        }
+
+    
+  </style>
+    <%- include("./partials/footer.ejs") %>
+  </body>
+  
+</html>

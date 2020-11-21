@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include("./partials/head.ejs") %>
+  <body>
+    <%-include("./partials/navbar.ejs") %>
+    <div class="container"  style="min-height: 100vh">
+      <div class="row">
+        <div class="col-sm-4 col-md-6 col-lg-4 mt-5 mx-auto">
+        <div class=" card  login-card-c text-white-50 border-card " >
+          <div class="card-header ">
+             <h4 class=" text-center">Log In</h4>
+          </div>
+         <div class="card-body p-3">
+               <% if (success_message!='') { %>
+               <div class="alert alert-dismissible alert-success">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong><%= success_message%> </strong></div>
+              <% } %>
+
+                  <% if ( error!='') { %>
+
+                <div class="alert alert-dismissible alert-danger">
+                  <button type="button" class="close" data-dismiss="alert">
+                    &times;
+                  </button>
+                  <strong><%= error %></strong>
+                </div>
+
+                <% } %>
+           
+            <form action="/login" method="POST">
+          
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                placeholder="Enter your Email"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label"
+                >Password:</label
+              >
+              <input 
+                class="form-control"
+                type="password"
+                name="password"
+                id="password"
+               placeholder="password"
+              ></input>
+            </div>
+               <p>New here?<a href="/register" class="btn-link"><span class="text-danger">Register Now</span></a></p>
+            <button class="btn btn-danger" type="submit">Login</button>
+         
+          </form>
+         </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include("./partials/footer.ejs") %>
+  </body>
+</html>

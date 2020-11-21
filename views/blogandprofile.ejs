@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include("./partials/head.ejs") %>
+
+  <body>
+    <%-include("./partials/navbar.ejs") %>
+    <div class="con-inner">
+    <div class="container text-white" style="min-height: 100vh">
+      <div class="row">
+        <div class="col-sm-12 mx-auto mt-5 mb-3">
+          <div class="card author-prof text-center mx-auto">
+            <div class="card-body">
+              <div class="row mx-5">
+                <div class="col-sm-3 d-flex align-items-center mr-3">
+                  <% if (writer.image) { %>
+                  <img
+                    src="/images/<%= writer.image %> "
+                    alt=""
+                    style="
+                      width: 100px;
+                      height: 100px;
+                      border-radius: 50%;
+                      border: 2px solid white;
+                    "
+                  />
+
+                  <% } else { %>
+                  <img
+                    src="/images/avatar-comment.png "
+                    alt=""
+                    style="
+                      width: 100px;
+                      height: 100px;
+                      border-radius: 50%;
+                      border: 2px solid white;
+                    "
+                  />
+                  <% } %>
+                </div>
+                <% if (writer.work&&writer.details) { %>
+                <div class="col-sm-8 text-left">
+                  <h4 class="card-title" style="color: #667eea">
+                    <%= author%>
+                  </h4>
+                  <h6><%= writer.work %></h6>
+                  <p><%= writer.details %></p>
+                </div>
+                <% } else { %>
+                <div class="col-sm-8 text-left">
+                  <h4 class="card-title" style="color: #667eea">
+                    <%= author%>
+                  </h4>
+                  <h6>Web Developer</h6>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Mollitia aut animi maxime ipsam tenetur fuga dolorum eius
+                    expedita labore error quidem maiores illum!
+                  </p>
+                </div>
+                <% } %>
+              </div>
+              <!-- <p class="card-text">Email:wali190939@gmail.com</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 style="border-left: 4px solid red; padding-left: 10px">My Blogs</h2>
+      <hr />
+      <div class="row g-3">
+        <% if (blogs.length>0) { %> <% blogs.forEach(blog=>{ %>
+
+        <div class="col-sm-6 text-white">
+          <!-- <p class="card-text text-truncate"><%= blog.content %></p> -->
+          <div class="card c-box">
+            <div class="card-body">
+              <h4 class="card-title"><%= blog.title %></h4>
+              <p class="d-inline"><strong><%= blog.author %> </strong></p>
+              <small
+                >-<span class="text-white-50"
+                  ><%= blog.createdAt.toDateString() %>
+                </span></small
+              ><br />
+              <p class="card-text blog-text-box"><%= blog.content %></p>
+              <a href="/addblogs/<%= blog.id %> " class="btn-link"
+                >Read More...</a
+              >
+              <br />
+            </div>
+          </div>
+        </div>
+
+        <% }) %> <% } else {%>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">No blogs availbale here</h4>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </div></div>
+    <style>
+      /* index and author profile blog style */
+      .blog-text-box {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+
+      .c-box {
+        padding: 10px;
+        transition: 0.3s;
+        border-radius: 10px;
+        /* background: white; */
+        background-color: #2d3748;
+        /* -webkit-box-shadow: 1px 1px 6px 0px rgba(0,0,0,0.79), -1px -1px 6px 0px rgba(0,0,0,0.46);  */
+        box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.041),
+          -1px 3px 6px 0px rgba(0, 0, 0, 0.034);
+      }
+      .author-prof {
+        padding: 10px;
+        transition: 0.3s;
+        border-radius: 10px;
+        /* background: white; */
+        background-color: #2d3748;
+      }
+      .c-box:hover {
+        margin-top: -5px;
+        margin-bottom: 5px;
+        /* -webkit-box-shadow: -2px 4px 6px 0px rgba(0, 0, 0, 0.082), 2px 0px 6px 0px rgba(0,0,0,0.5);  */
+        box-shadow: -2px 4px 6px 0px rgba(0, 0, 0, 0.164),
+          2px 2px 6px 0px rgba(0, 0, 0, 0.144);
+      }
+    </style>
+    <%- include("./partials/footer.ejs") %>
+  </body>
+</html>

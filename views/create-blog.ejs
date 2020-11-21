@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include("./partials/head.ejs") %>
+  <body>
+    <%-include("./partials/navbar.ejs") %>
+    <div class="container text-white mt-5" style="min-height: 100vh">
+      <div class="row">
+        <div class="col-sm-6 mx-auto">
+          <h2 class="my-3 pl-3" style="border-left: 4px solid red">
+            Create A New Blog
+          </h2>
+          <div class="card blog-card-c p-3 text-white-50">
+            <% if (user) { %>
+
+            <form action="/addblogs" method="POST">
+              <div class="form-group mb-3">
+                <label for="title">Title</label>
+                <input
+                  type="text"
+                  name="title"
+                  class="form-control input-bg"
+                  placeholder="name"
+                />
+              </div>
+              <div class="form-group mb-3">
+                <label for="author">Author</label>
+                <input
+                  type="text"
+                  name="author"
+                  class="form-control input-bg"
+                  placeholder="name"
+                  value="<%=user.name %> "
+                  readonly
+                />
+              </div>
+              <div class="form-group mb-3">
+                <label for="content">Content</label>
+                <textarea
+                  name="content"
+                  rows="8"
+                  class="form-control input-bg"
+                ></textarea>
+              </div>
+              <button class="btn btn-danger mt-3">Submit</button>
+            </form>
+          </div>
+            <% } else { %>
+        
+          <h1 class="text-center">You are not admin</h1>
+        
+        <% } %>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+    <%- include("./partials/footer.ejs") %>
+  </body>
+</html>
