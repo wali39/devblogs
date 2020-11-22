@@ -3,185 +3,177 @@
 <%-include("./partials/head.ejs") %>
 
 <body>
-  <%-include("./partials/navbar.ejs") %>
-  <div class="container" style="min-height: 100vh">
-    <div class="row text-white">
-      <div class="col-sm-6 col-md-8 col-lg-6 mt-5 mx-auto">
-        <% if(admin ||( user&& user.name==blog.author)){ %>
-        <div>
-          <h2><%= blog.title %></h2>
-          <p style="border-left: 2px solid red" class="pl-2">
-            <%=blog.author %> -
-            <span class="text-white-50"><%=blog.createdAt.toDateString() %></span>
-          </p>
-        </div>
-        <div class="card login-card-c">
-          <div class="card-body">
-            <a class="float-right p-0" href="/delete/<%= blog.id %> "><button class="btn btn-danger">
-                <i class="fas fa-trash text-light"></i></button></a>
-            <p class="card-text text-light"><%= blog.content %></p>
-            <hr />
-            <div class="d-flex justify-content-between">
-              <a href="/ " class="mt-2 alert-link"> Back to Home</a>
-              <p class="social-share mt-2">
-                Share &nbsp;<i class="fab fa-facebook ml-3"></i>
-                <i class="fab fa-twitter ml-3"></i>
-                <i class="fab fa-linkedin ml-3"></i>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <form action="/details/<%= blog.id%> " method="POST">
-          <div class="d-flex ">
-            <div>
-              <img src="/images/avatar-comment.png" style="width: 40px; margin-top: 23px; border-radius: 2px;"
-                alt="avatar">
-            </div>
-            <div class="form-group w-100 ml-2">
-
-              <label for="">comment</label>
-              <input type="text" placeholder="comment here" class="form-control  " name="content" required>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary mt-2">comment</button>
-        </form>
-
-      <!-- comment section  -->
-        <div class="comment text-black">
-          <p class="text-white">Comments:
-            <% commentArray.comments.forEach(comment=>{%>
-            <div class="d-flex mt-3">
-              <div class="sec-1 mr-3 mt-3 "><img src="/images/avatar-comment.png" alt=""
-                  style="width: 60px; height: 60px;"></div>
-              <div class=" w-100 p-2" style="background-color: #2d3748;">
-                <div class="comment-body">
-                  <strong><%= comment.commentCreator %> </strong>- <small><%= comment.createdAt.toDateString()  %>
-                  </small>
-                  <p class="card-text"><%= comment.content %></p>
+    <%-include("./partials/navbar.ejs") %>
+    <div class="container" style="min-height: 100vh">
+        <div class="row text-white">
+            <div class="col-sm-6 col-md-8 col-lg-6 mt-5 mx-auto">
+                <% if(admin ||( user&& user.name==blog.author)){ %>
+                <div>
+                    <h2><%= blog.title %></h2>
+                    <p style="border-left: 2px solid red" class="pl-2">
+                        <%=blog.author %> -
+                        <span class="text-white-50"><%=blog.createdAt.toDateString() %></span>
+                    </p>
                 </div>
-              </div>
-            </div>
-
-        <% } else { %>
-        <div>
-          <h2><%= blog.title %></h2>
-          <p style="border-left: 2px solid red" class="pl-2">
-            <%=blog.author %> -
-            <span class="text-white-50"><%=blog.createdAt.toDateString() %></span>
-          </p>
-        </div>
-        <div class="card login-card-c">
-          <div class="card-body">
-            <p class="card-text text-light"><%= blog.content %></p>
-            <hr />
-            <div class="d-flex justify-content-between">
-              <a href="/ " class="mt-2 alert-link"> Back to Home</a>
-              <p class="social-share mt-2">
-                Share &nbsp;<i class="fab fa-facebook ml-3"></i>
-                <i class="fab fa-twitter ml-3"></i>
-                <i class="fab fa-linkedin ml-3"></i>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <form action="/details/<%= blog.id%> " method="POST">
-          <div class="d-flex ">
-            <div>
-              <img src="/images/avatar-comment.png" style="width: 40px; margin-top: 23px; border-radius: 2px;"
-                alt="avatar">
-            </div>
-            <div class="form-group w-100 ml-2">
-
-              <label for="">comment</label>
-              <input type="text" placeholder="comment here" class="form-control  " name="content" required>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary mt-2">comment</button>
-        </form>
-
-        <!-- comment section  -->
-        <div class="comment text-black">
-          <p class="text-white">Comments:
-            <% commentArray.comments.forEach(comment=>{%>
-            <div class="d-flex mt-3">
-              <div class="sec-1 mr-3 mt-3 "><img src="/images/avatar-comment.png" alt=""
-                  style="width: 60px; height: 60px;"></div>
-              <div class=" w-100 p-2" style="background-color: #2d3748;">
-
-
-
-                <div class="comment-body">
-                  <strong><%= comment.commentCreator %> </strong>- <small><%= comment.createdAt.toDateString()  %>
-                  </small>
-                  <p class="card-text"><%= comment.content %></p>
+                <div class="card login-card-c">
+                    <div class="card-body">
+                        <a class="float-right p-0" href="/delete/<%= blog.id %> "><button class="btn btn-danger">
+                                <i class="fas fa-trash text-light"></i></button></a>
+                        <p class="card-text text-light"><%= blog.content %></p>
+                        <hr />
+                        <div class="d-flex justify-content-between">
+                            <a href="/ " class="mt-2 alert-link"> Back to Home</a>
+                            <p class="social-share mt-2">
+                                Share &nbsp;<i class="fab fa-facebook ml-3"></i>
+                                <i class="fab fa-twitter ml-3"></i>
+                                <i class="fab fa-linkedin ml-3"></i>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-              </div>
+
+                <form action="/details/<%= blog.id%> " method="POST">
+                    <div class="d-flex ">
+                        <div>
+                            <img src="/images/avatar-comment.png" style="width: 40px; margin-top: 23px; border-radius: 2px;" alt="avatar">
+                        </div>
+                        <div class="form-group w-100 ml-2">
+
+                            <label for="">comment</label>
+                            <input type="text" placeholder="comment here" class="form-control  " name="content" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2">comment</button>
+                </form>
+
+                <!-- comment section  -->
+                <!-- comment section  -->
+                <div class="comment text-black">
+                    <p class="text-white">Comments:
+                        <% commentArray.comments.forEach(comment=>{%>
+                    <div class="d-flex mt-3">
+                        <div class="sec-1 mr-3 mt-3 "><img src="/images/avatar-comment.png" alt="" style="width: 60px; height: 60px;"></div>
+                        <div class=" w-100 p-2" style="background-color: #2d3748;">
+
+
+
+                            <div class="comment-body">
+                                <strong><%= comment.commentCreator %> </strong>- <small><%= comment.createdAt.toDateString()  %>
+                                </small>
+                                <p class="card-text"><%= comment.content %></p>
+                            </div>
+                        </div>
+                    </div>
+                    </p>
+                </div>
+
+                <% } else { %>
+                <div>
+                    <h2><%= blog.title %></h2>
+                    <p style="border-left: 2px solid red" class="pl-2">
+                        <%=blog.author %> -
+                        <span class="text-white-50"><%=blog.createdAt.toDateString() %></span>
+                    </p>
+                </div>
+                <div class="card login-card-c">
+                    <div class="card-body">
+                        <p class="card-text text-light"><%= blog.content %></p>
+                        <hr />
+                        <div class="d-flex justify-content-between">
+                            <a href="/ " class="mt-2 alert-link"> Back to Home</a>
+                            <p class="social-share mt-2">
+                                Share &nbsp;<i class="fab fa-facebook ml-3"></i>
+                                <i class="fab fa-twitter ml-3"></i>
+                                <i class="fab fa-linkedin ml-3"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <form action="/details/<%= blog.id%> " method="POST">
+                    <div class="d-flex ">
+                        <div>
+                            <img src="/images/avatar-comment.png" style="width: 40px; margin-top: 23px; border-radius: 2px;" alt="avatar">
+                        </div>
+                        <div class="form-group w-100 ml-2">
+
+                            <label for="">comment</label>
+                            <input type="text" placeholder="comment here" class="form-control  " name="content" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2">comment</button>
+                </form>
+
+                <!-- comment section  -->
+                <div class="comment text-black">
+                    <p class="text-white">Comments:
+                        <% commentArray.comments.forEach(comment=>{%>
+                    <div class="d-flex mt-3">
+                        <div class="sec-1 mr-3 mt-3 "><img src="/images/avatar-comment.png" alt="" style="width: 60px; height: 60px;"></div>
+                        <div class=" w-100 p-2" style="background-color: #2d3748;">
+
+
+
+                            <div class="comment-body">
+                                <strong><%= comment.commentCreator %> </strong>- <small><%= comment.createdAt.toDateString()  %>
+                                </small>
+                                <p class="card-text"><%= comment.content %></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <% } )%>
+                    </p>
+
+
+                </div>
+
+
+                <% } %>
+
+                <br />
             </div>
-
-            <!-- <div class="card  mt-2 p-2">
-             
-              <div class="card-header">
-                <strong><%= comment.commentCreator %> </strong>- <small><%= comment.createdAt.toDateString()  %>
-                </small>
-              </div>
-              <div class="card-content">
-                <p class=" mt-2"> <%= comment.content %>
-                </p>
-              </div>
-
-            </div> -->
-
-
-
-            <% } )%>
-          </p>
-
-
         </div>
-
-
-        <% } %>
-
-        <br />
-      </div>
     </div>
-  </div>
-  <style>
-    .comment-body {
-      position: relative;
-    }
+    <style>
+        .comment-body {
+            position: relative;
+        }
 
-    .comment-body::before {
-      content: " ";
-      position: absolute;
-      top: 10px;
-      left: -15px;
-      width: 20px;
-      height: 10px;
-      background: rgb(182, 180, 180);
-      z-index: -1;
-      transform: rotate(45deg);
+        .comment-body::before {
+            content: " ";
+            position: absolute;
+            top: 10px;
+            left: -15px;
+            width: 20px;
+            height: 10px;
+            background: rgb(182, 180, 180);
+            z-index: -1;
+            transform: rotate(45deg);
 
-    }
+        }
 
-    .social-share i.fab {
-      color: #3b5998;
-      font-size: 20px;
-    }
+        .social-share i.fab {
+            color: #3b5998;
+            font-size: 20px;
+        }
 
-    .social-share i.fa-twitter {
-      color: #55acee;
-      font-size: 20px;
-    }
+        .social-share i.fa-twitter {
+            color: #55acee;
+            font-size: 20px;
+        }
 
-    .social-share i.fa-linkedin {
-      color: #2867b2;
-      font-size: 20px;
-    }
-  </style>
-  <%- include("./partials/footer.ejs") %>
+        .social-share i.fa-linkedin {
+            color: #2867b2;
+            font-size: 20px;
+        }
+
+    </style>
+    <%- include("./partials/footer.ejs") %>
 </body>
 
 </html>
