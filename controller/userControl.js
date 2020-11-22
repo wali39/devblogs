@@ -93,10 +93,14 @@ const profile = (req, res) => {
 
 const authorProfileAndBlog = async (req, res) => {
   const author = req.params.author;
-  // const user = res.locals.user;
-  // if (user && user.admin === true) {
-  //   var admin = true;
-  // }
+  const user1 = res.locals.user;
+  var admin = false;
+  if (user1 && user1.admin === true) {
+    admin = true;
+  }
+  if (user1 && author === user1.name) {
+    admin = true;
+  }
   var user = await User.findOne({ name: author })
     .then((result) => {
       return result;
@@ -110,6 +114,7 @@ const authorProfileAndBlog = async (req, res) => {
       res.render("blogandprofile", {
         title: "author profile",
         author,
+        admin,
         writer: user,
         file: res.locals.file,
         blogs: result,

@@ -7,7 +7,7 @@
   <div class="container" style="min-height: 100vh">
     <div class="row text-white">
       <div class="col-sm-6 col-md-8 col-lg-6 mt-5 mx-auto">
-        <% if(admin){ %>
+        <% if(admin ||( user&& user.name==blog.author)){ %>
         <div>
           <h2><%= blog.title %></h2>
           <p style="border-left: 2px solid red" class="pl-2">
@@ -109,18 +109,20 @@
         <div class="comment text-black">
           <p class="text-white">Comments:
             <% commentArray.comments.forEach(comment=>{%>
-<div class="d-flex mt-3">
-  <div class="sec-1 mr-3 mt-3 "><img src="/images/avatar-comment.png" alt="" style="width: 60px; height: 60px;"></div>
-  <div class=" w-100 p-2" style="background-color: #2d3748;">
- 
-   
+            <div class="d-flex mt-3">
+              <div class="sec-1 mr-3 mt-3 "><img src="/images/avatar-comment.png" alt=""
+                  style="width: 60px; height: 60px;"></div>
+              <div class=" w-100 p-2" style="background-color: #2d3748;">
 
-  <div class="comment-body">
-    <strong><%= comment.commentCreator %> </strong>- <small><%= comment.createdAt.toDateString()  %> </small>
-    <p class="card-text"><%= comment.content %></p>
-  </div>
-</div>
-</div>
+
+
+                <div class="comment-body">
+                  <strong><%= comment.commentCreator %> </strong>- <small><%= comment.createdAt.toDateString()  %>
+                  </small>
+                  <p class="card-text"><%= comment.content %></p>
+                </div>
+              </div>
+            </div>
 
             <!-- <div class="card  mt-2 p-2">
              
@@ -151,21 +153,23 @@
     </div>
   </div>
   <style>
-     .comment-body{
-       position: relative;
-     }
-    .comment-body::before{
+    .comment-body {
+      position: relative;
+    }
+
+    .comment-body::before {
       content: " ";
       position: absolute;
       top: 10px;
-      left:-15px;
+      left: -15px;
       width: 20px;
       height: 10px;
       background: rgb(182, 180, 180);
       z-index: -1;
       transform: rotate(45deg);
-      
+
     }
+
     .social-share i.fab {
       color: #3b5998;
       font-size: 20px;

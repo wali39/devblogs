@@ -89,10 +89,22 @@ const createComment = async (req, res) => {
 
 const editBlog = async function (req, res) {
   const user = res.locals.user;
+  var admin = false;
   if (user && user.admin === true) {
-    var admin = true;
+    admin = true;
   }
   const id = req.params.id;
+  // var user = await User.findOne({_id: id })
+  //   .then((result) => {
+  //     return result;
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+  // console.log(user);
+  // if (user1 && user.name === user1.name) {
+  //   admin = true;
+  // }
   await Blog.findById(id, (err, result) => {
     res.render("edit", { title: "edit post", admin, blog: result });
   });

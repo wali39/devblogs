@@ -10,7 +10,7 @@
             Update Blog
           </h2>
           <div class="card blog-card-c p-3 text-white-50">
-            <% if (admin) { %>
+            <% if (user.name===blog.author) { %>
 
             <form action="/edit/<%= blog.id %> " method="POST">
               <div class="form-group mb-3">

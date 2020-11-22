@@ -81,7 +81,10 @@
                 </span></small
               ><br />
               <p class="card-text blog-text-box"><%= blog.content %></p>
-              <a href="/addblogs/<%= blog.id %> " class="btn-link"
+                <% if (admin) { %>
+              <a href="/edit/<%= blog.id %> " class="btn-link">Edit...</a>
+              <% } %>
+              <a href="/details/<%= blog.id %> " class="btn-link"
                 >Read More...</a
               >
               <br />
