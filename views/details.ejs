@@ -47,25 +47,21 @@
           <button type="submit" class="btn btn-primary mt-2">comment</button>
         </form>
 
-        <!-- comment section  -->
-        <div class="comment">
+      <!-- comment section  -->
+        <div class="comment text-black">
           <p class="text-white">Comments:
             <% commentArray.comments.forEach(comment=>{%>
-
-
-            <div class="alert  bg-info p-2">
-              <strong><%= comment.commentCreator %> </strong>
-              <p class="text-white mt-2"> <%= comment.content %>
-              </p>
-              <small><%= comment.createdAt.toDateString()  %> </small>
-
+            <div class="d-flex mt-3">
+              <div class="sec-1 mr-3 mt-3 "><img src="/images/avatar-comment.png" alt=""
+                  style="width: 60px; height: 60px;"></div>
+              <div class=" w-100 p-2" style="background-color: #2d3748;">
+                <div class="comment-body">
+                  <strong><%= comment.commentCreator %> </strong>- <small><%= comment.createdAt.toDateString()  %>
+                  </small>
+                  <p class="card-text"><%= comment.content %></p>
+                </div>
+              </div>
             </div>
-
-            <% } )%>
-          </p>
-
-
-        </div>
 
         <% } else { %>
         <div>
