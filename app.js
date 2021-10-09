@@ -45,12 +45,11 @@ app.use(function (req, res, next) {
 });
 
 app.use(blogRoute);
-
 app.use(userRoute);
 
 // root directory redirect to blog directory
 app.get("/", (req, res) => {
-  res.redirect("/blogs");
+  res.redirect("/blogs/1");
 });
 app.get("/about", (req, res) => {
   res.render("contact", {

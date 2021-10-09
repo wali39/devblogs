@@ -15,7 +15,7 @@ router.use(function (req, res, next) {
   next();
 });
 
-router.get("/blogs", blogControl.showBlogs);
+router.get("/blogs/:page", blogControl.showBlogs);
 
 router.post("/addblogs", blogControl.blogSave);
 
@@ -37,6 +37,7 @@ router.get("/search", (req, res) => {
   // Make lowercase
   // term = term.toLowerCase();
   const regx = new RegExp(term, "i");
+
   Blog.find({
     title: regx,
   })
@@ -45,6 +46,8 @@ router.get("/search", (req, res) => {
         blogs: result,
         title: "searching blog",
         admin: false,
+        pages: 1,
+        current: 1,
       });
     })
     .catch((error) => {

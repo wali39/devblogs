@@ -2,20 +2,41 @@ const Blog = require("../models/blog");
 const User = require("../models/user");
 const Comment = require("../models/comment");
 
-const showBlogs = (req, res) => {
+const showBlogs = (req, res, next) => {
   const user = res.locals.user;
   if (user && user.admin === true) {
     var admin = true;
   }
+
+  const perPage = 6;
+  const page = req.params.page || 1;
+
   Blog.find()
-    .then((result) => {
-      // console.log(result);
-      res.render("index", { title: "addblogs", admin, blogs: result });
-      // console.log(result);
-    })
-    .catch((err) => {
-      console.log(err);
+    .sort([["updatedAt", -1]])
+
+    .skip(perPage * page - perPage)
+    .limit(perPage)
+    .exec(function (err, blogs) {
+      Blog.count().exec(function (err, count) {
+        if (err) next(err);
+        res.render("index", {
+          title: "all blogs",
+          admin,
+          blogs,
+          current: page,
+          pages: Math.ceil(count / perPage),
+        });
+      });
     });
+
+  // .then((result) => {
+  //   // console.log(result);
+  //   res.render("index", { title: "addblogs", admin, blogs: result });
+  //   // console.log(result);
+  // })
+  // .catch((err) => {
+  //   console.log(err);
+  // });
 };
 
 const blogSave = (req, res) => {
