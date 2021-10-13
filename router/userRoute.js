@@ -3,13 +3,8 @@ const userControl = require("../controller/userControl");
 const cloudinary = require("cloudinary").v2;
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
 const multer = require("multer");
-const path = require("path");
-const User = require("../models/user");
 
-const {
-  authentication,
-  secureAuthentication,
-} = require("../authentication/auth");
+const { secureAuthentication } = require("../authentication/auth");
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -24,7 +19,7 @@ const storage = new CloudinaryStorage({
       "png", "jpg", "jpeg", "gif";
     },
     public_id: (req, file) => {
-      return new Date().now() + file.originalname;
+      return Date.now() + file.originalname;
     },
   },
 });
