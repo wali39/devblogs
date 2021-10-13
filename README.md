@@ -16,25 +16,27 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+<div align="center">
+            
+            
+[![Github Contributors](https://img.shields.io/github/contributors/wali39/blog-app-3)](https://github.com/wali39/blog-app-3/contributor)
+![GithubForks](https://img.shields.io/github/forks/wali39/blog-app-3)
+![Github Stargazers](https://img.shields.io/github/stars/wali39/blog-app-3)
+![Github Issues](https://img.shields.io/github/issues/wali39/blog-app-3)
+![Github Pull request](https://img.shields.io/github/issues-pr/wali39/blog-app-3)
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
+</div>
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://res.cloudinary.com/plutonic39/image/upload/v1634110282/github-readmen/logox_c4y84d.png" alt="Logo" width="170" height="80" border-radius="5%">
   </a>
 
   <h3 align="center">Dev Blogs</h3>
 
   <p align="center">
-    An awesome bloging app
+    An awesome blogging app
     
 </div>
 
@@ -55,12 +57,10 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
+   
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+
   </ol>
 </details>
 
@@ -68,7 +68,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://res.cloudinary.com/plutonic39/image/upload/v1634107473/github-readmen/project-cover_ukskbz.png)
+![Product Name Screen Shot](https://res.cloudinary.com/plutonic39/image/upload/v1634107473/github-readmen/project-cover_ukskbz.png)
 
 There are many great blog App available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a blog app so amazing that it'll be the last one you ever need -- I think this is it.
 
