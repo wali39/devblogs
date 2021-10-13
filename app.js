@@ -29,7 +29,7 @@ app.use(function (req, res, next) {
   res.locals.file = null;
 
   if (req.file) {
-    res.locals.file = `/images/${req.file.filename}`;
+    res.locals.file = `${req.file.filename}`;
   }
 
   next();

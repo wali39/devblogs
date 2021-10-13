@@ -12,7 +12,7 @@ const register = (req, res) => {
 const registrationSave = (req, res) => {
   const user = new User(req.body);
   if (req.file) {
-    user.image = req.file.filename;
+    user.image = req.file.path;
   }
 
   const f = /\S+@\S+\.\S+/;
@@ -129,7 +129,7 @@ const profileUpdate = async (req, res) => {
   const id = req.params.id;
   const user = {};
   if (req.file) {
-    user.image = req.file.filename;
+    user.image = req.file.path;
   }
   user.work = req.body.work;
   user.details = req.body.about;
