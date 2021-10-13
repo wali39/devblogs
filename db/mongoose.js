@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-// require("dotenv").config();
-const url =
-  "mongodb+srv://wali39:databasemdb@cluster0.6mjw9.mongodb.net/myDatabase?retryWrites=true&w=majority";
+require("dotenv").config();
+
+const url =process.env.DB_URL;
 mongoose
   .connect(url, {
     useNewUrlParser: true,

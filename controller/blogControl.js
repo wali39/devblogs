@@ -13,7 +13,6 @@ const showBlogs = (req, res, next) => {
 
   Blog.find()
     .sort([["updatedAt", -1]])
-
     .skip(perPage * page - perPage)
     .limit(perPage)
     .exec(function (err, blogs) {

@@ -48,18 +48,26 @@
       <% } %>
 
    <% if(pages>0){%>
-    <nav aria-label="Page navigation " >
+    <nav aria-label="Page navigation "  >
       <ul class="pagination d-flex justify-content-center mt-5">
-        <%let val=""%>
+        <%let buttonStatus=""%>
+        <% let textStyle="text-white"  %> 
         <%if(current==1){%>
-          <%val="disabled"%>
+          <%buttonStatus="disabled "%>
+          <% textStyle="text-white-50"  %> 
           <%}%>
-       <li class="page-item <%=val%>" ><a class="page-link bg-dark text-white px-4" href="#"><< </a></li>
+       <li class="page-item <%=buttonStatus%>" ><a class="page-link bg-dark <%= textStyle %>   px-4" href="/blogs/<%=current-1 %> ">previous</a></li>
        <%for(let i=1; i<=pages; i++){%>
         <li class="page-item"><a class="page-link bg-dark text-white px-4 " href="/blogs/<%=i%>"><%=i%></a></li>
         <%}%>
-       
-        <li class="page-item"><a class="page-link bg-dark text-white px-4" href="#"> >></a></li>
+        <% let status="" %>
+        <% let tcolor="text-white"  %> 
+      
+       <%if(current>=pages){%>
+        <% status="disabled" %>
+        <% tcolor="text-white-50"  %> 
+        <%}%>
+        <li class="page-item <%=status%>"><a class="page-link bg-dark <%=tcolor%> px-4" href="/blogs/<%=+current+1 %> "> next</a></li>
       </ul>
     </nav>
     <%}%>

@@ -31,28 +31,41 @@ router.get("/blog-create", secureAuthentication, blogControl.createBlog);
 router.get("/edit/:id", blogControl.editBlog);
 
 router.post("/edit/:id", blogControl.editedBlogSave);
-router.get("/search", (req, res) => {
+router.get("/search", (req, res, next) => {
   let { term } = req.query;
+  const perPage = 6;
 
-  // Make lowercase
-  // term = term.toLowerCase();
   const regx = new RegExp(term, "i");
 
-  Blog.find({
-    title: regx,
-  })
-    .then((result) => {
+  Blog.find({ title: regx })
+  .exec(function (err, blogs) {
+    Blog.count().exec(function (err, count) {
+      if (err) next(err);
       res.render("index", {
-        blogs: result,
+        blogs,
         title: "searching blog",
         admin: false,
-        pages: 1,
+        pages: Math.ceil(count / perPage),
         current: 1,
       });
-    })
-    .catch((error) => {
-      console.log(error);
     });
+  });
+
+  // Blog.find({
+  //   title: regx,
+  // })
+  //   .then((result) => {
+  //     res.render("index", {
+  //       blogs: result,
+  //       title: "searching blog",
+  //       admin: false,
+  //       pages: 1,
+  //       current: 1,
+  //     });
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
 });
 
 module.exports = router;
