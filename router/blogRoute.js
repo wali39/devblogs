@@ -1,9 +1,6 @@
 const express = require("express");
 
-const {
-  authentication,
-  secureAuthentication,
-} = require("../authentication/auth");
+const { secureAuthentication } = require("../authentication/auth");
 
 const blogControl = require("../controller/blogControl");
 const Blog = require("../models/blog");
@@ -37,8 +34,7 @@ router.get("/search", (req, res, next) => {
 
   const regx = new RegExp(term, "i");
 
-  Blog.find({ title: regx })
-  .exec(function (err, blogs) {
+  Blog.find({ title: regx }).exec(function (err, blogs) {
     Blog.count().exec(function (err, count) {
       if (err) next(err);
       res.render("index", {
@@ -50,22 +46,6 @@ router.get("/search", (req, res, next) => {
       });
     });
   });
-
-  // Blog.find({
-  //   title: regx,
-  // })
-  //   .then((result) => {
-  //     res.render("index", {
-  //       blogs: result,
-  //       title: "searching blog",
-  //       admin: false,
-  //       pages: 1,
-  //       current: 1,
-  //     });
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
 });
 
 module.exports = router;

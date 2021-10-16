@@ -1,4 +1,3 @@
-
 <div id="top"></div>
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
@@ -119,6 +118,10 @@ Download git https://github.com/git-for-windows/git/releases/download/v2.33.0.wi
 4. Enter your DB URL in `.env`
    ```js
    DB_URL = "ENTER YOUR MONGODBATLAS DB URL";
+   ### these are for cloudinary cloud image storage support
+   CLOUD_NAME="ENTER YOUR CLOUD NAME";
+   API_KEY="ENTER YOUR API KEY";
+   API_SECRET="ENTER YOUR API SECRET";
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -140,4 +143,3 @@ Wali Ullah - [@Facebook](https://www.facebook.com/waliullah1939)
 Project Link: [https://github.com/wali39/blog-app-3](https://github.com/wali39/blog-app-3)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
