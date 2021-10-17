@@ -115,10 +115,10 @@ Download git https://github.com/git-for-windows/git/releases/download/v2.33.0.wi
    ```sh
    npm install
    ```
-4. Enter your DB URL in `.env`
+4. Enter your environment variable in `.env`
    ```js
    DB_URL = "ENTER YOUR MONGODBATLAS DB URL";
-   ### these are for cloudinary cloud image storage support
+   ### these are cloudinary cloud image storage support
    CLOUD_NAME="ENTER YOUR CLOUD NAME";
    API_KEY="ENTER YOUR API KEY";
    API_SECRET="ENTER YOUR API SECRET";
