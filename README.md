@@ -29,13 +29,13 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="https://res.cloudinary.com/plutonic39/image/upload/v1634110282/github-readmen/logox_c4y84d.png" alt="Logo" width="170" height="80" border-radius="5%">
+    <img src="https://res.cloudinary.com/plutonic39/image/upload/v1634110282/github-readmen/logox_c4y84d.png" alt="Logo" width="180" height="60" border-radius="5%">
   </a>
 
   <h3 align="center">Dev Blogs</h3>
 
   <p align="center">
-    An awesome blogging app
+    A lightweight blogging platform buit with Express + mongodb
     
 </div>
 
@@ -56,9 +56,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-   
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
 
   </ol>
 </details>
@@ -67,7 +64,7 @@
 
 ## About The Project
 
-![Product Name Screen Shot](https://res.cloudinary.com/plutonic39/image/upload/v1634107473/github-readmen/project-cover_ukskbz.png)
+![Product Name Screen Shot](https://res.cloudinary.com/dl1sztvng/image/upload/v1723972196/eqh6yzhkybmdxwj9hjvf.png)
 
 There are many great blog App available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a blog app so amazing that it'll be the last one you ever need -- I think this is it.
 
@@ -101,16 +98,18 @@ update node package manager
   ```
 - Git
 
-```sh
-Download git https://github.com/git-for-windows/git/releases/download/v2.33.0.windows.2/Git-2.33.0.2-64-bit.exe
-```
+  ```sh
+  Download git https://github.com/git-for-windows/git/releases/download/v2.33.0.windows.2/Git-2.33.0.2-64-bit.exe
+  ```
 
-### Installation
+  ### Installation
 
 2. Clone the repo
+
    ```sh
    git clone https://github.com/wali39/blog-app-3.git
    ```
+
 3. Install NPM packages
    ```sh
    npm install
@@ -136,10 +135,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <!-- CONTACT -->
 
-## Contact
+## Demo
 
-Wali Ullah - [@Facebook](https://www.facebook.com/waliullah1939)
-
-Project Link: [https://github.com/wali39/blog-app-3](https://github.com/wali39/blog-app-3)
+Devblogs: [https://github.com/wali39/blog-app-3](https://github.com/wali39/blog-app-3)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+````
