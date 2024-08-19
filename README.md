@@ -18,11 +18,11 @@
 <div align="center">
             
             
-[![Github Contributors](https://img.shields.io/github/contributors/wali39/blog-app-3)](https://github.com/wali39/blog-app-3/contributor)
-![GithubForks](https://img.shields.io/github/forks/wali39/blog-app-3)
-![Github Stargazers](https://img.shields.io/github/stars/wali39/blog-app-3)
-![Github Issues](https://img.shields.io/github/issues/wali39/blog-app-3)
-![Github Pull request](https://img.shields.io/github/issues-pr/wali39/blog-app-3)
+[![Github Contributors](https://img.shields.io/github/contributors/wali39/devblogs)](https://github.com/wali39/devblogs/contributors)
+![GithubForks](https://img.shields.io/github/forks/wali39/devblogs)
+![Github Stargazers](https://img.shields.io/github/stars/wali39/devblogs)
+![Github Issues](https://img.shields.io/github/issues/wali39/devblogs)
+![Github Pull request](https://img.shields.io/github/issues-pr/wali39/devblogs)
 
 </div>
 <!-- PROJECT LOGO -->
