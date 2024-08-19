@@ -107,7 +107,7 @@ update node package manager
 2. Clone the repo
 
    ```sh
-   git clone https://github.com/wali39/blog-app-3.git
+   git clone https://github.com/wali39/devblogs.git
    ```
 
 3. Install NPM packages
