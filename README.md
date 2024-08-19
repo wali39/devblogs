@@ -133,11 +133,3 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- CONTACT -->
-
-## Demo
-
-Devblogs: [https://github.com/wali39/blog-app-3](https://github.com/wali39/blog-app-3)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-````
